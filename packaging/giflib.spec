@@ -1,4 +1,3 @@
-#sbs-git:slp/unmodified/giflib giflib 4.1.6 61596465721e29cdfae7e6237b2a148e04006a6c
 Name:           giflib
 Version:        4.1.6
 Release:        9
@@ -11,10 +10,6 @@ BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xv)
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
-
-Obsoletes:      libungif <= %{version}
-Provides:       libungif <= %{version}
 
 %description
 The giflib package contains a shared library of functions for
@@ -30,8 +25,6 @@ utilities to manipulate GIFs.
 Summary:        Development tools for programs which will use the libungif library
 Group:          Development/Libraries
 Requires:       %{name} = %{version}
-Provides:       libungif-devel <= %{version}
-Obsoletes:      libungif-devel <= %{version}
 
 %description devel
 This package contains the static libraries, header files and
@@ -46,7 +39,6 @@ giflib package.
 Summary:        Programs for manipulating GIF format image files
 Group:          Applications/Multimedia
 Requires:       %{name} = %{version}
-Obsoletes:      libungif-progs <= %{version}
 
 %description utils
 The giflib-utils package contains various programs for manipulating
@@ -66,7 +58,6 @@ MAJOR=`echo '%{version}' | sed 's/\([0-9]\+\)\..*/\1/'`
 gcc %{optflags} -shared -Wl,-soname,libungif.so.$MAJOR -Llib/.libs -lgif -o libungif.so.%{version}
 
 %install
-
 %make_install
 
 install -m 0755 -p libungif.so.%{version} %{buildroot}%{_libdir}
