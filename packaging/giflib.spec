@@ -5,7 +5,7 @@ License:        MIT
 Summary:        Library for manipulating GIF format image files
 Url:            http://sourceforge.net/projects/giflib/
 Group:          System/Libraries
-Source0:        http://downloads.sourceforge.net/giflib/%{name}-%{version}.tar.gz
+Source0:        http://downloads.sourceforge.net/giflib/%{name}-%{version}.tar.bz2
 BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
