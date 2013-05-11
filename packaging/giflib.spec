@@ -70,6 +70,7 @@ ln -sf libungif.so.4 %{buildroot}%{_libdir}/libungif.so
 %postun -p /sbin/ldconfig
 
 %files
+%license COPYING
 %{_libdir}/lib*.so.*
 
 %files devel
