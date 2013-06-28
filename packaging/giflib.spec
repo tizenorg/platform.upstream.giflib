@@ -6,6 +6,7 @@ Summary:        Library for manipulating GIF format image files
 Url:            http://sourceforge.net/projects/giflib/
 Group:          System/Libraries
 Source0:        http://downloads.sourceforge.net/giflib/%{name}-%{version}.tar.bz2
+Source1001: 	giflib.manifest
 BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(sm)
 BuildRequires:  pkgconfig(x11)
@@ -49,6 +50,7 @@ You'll also need to install the giflib package.
 
 %prep
 %setup -q
+cp %{SOURCE1001} .
 
 %build
 %configure
@@ -70,12 +72,15 @@ ln -sf libungif.so.4 %{buildroot}%{_libdir}/libungif.so
 %postun -p /sbin/ldconfig
 
 %files
+%manifest %{name}.manifest
 %license COPYING
 %{_libdir}/lib*.so.*
 
 %files devel
+%manifest %{name}.manifest
 %{_libdir}/lib*.so
 %{_includedir}/*.h
 
 %files utils
+%manifest %{name}.manifest
 %{_bindir}/*
