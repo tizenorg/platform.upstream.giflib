@@ -1,3 +1,5 @@
+%bcond_with wayland
+
 Name:           giflib
 Version:        4.1.6
 Release:        9
@@ -9,8 +11,12 @@ Source0:        http://downloads.sourceforge.net/giflib/%{name}-%{version}.tar.b
 Source1001: 	giflib.manifest
 BuildRequires:  pkgconfig(ice)
 BuildRequires:  pkgconfig(sm)
+%if %{with wayland}
+
+%else
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xv)
+%endif
 
 %description
 The giflib package contains a shared library of functions for
@@ -53,7 +59,11 @@ You'll also need to install the giflib package.
 cp %{SOURCE1001} .
 
 %build
-%configure
+%configure  \
+%if %{with wayland}
+  --disable-x11
+%endif
+
 make %{?_smp_mflags} all
 
 MAJOR=`echo '%{version}' | sed 's/\([0-9]\+\)\..*/\1/'`
