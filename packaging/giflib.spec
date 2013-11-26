@@ -9,13 +9,13 @@ Url:            http://sourceforge.net/projects/giflib/
 Group:          System/Libraries
 Source0:        http://downloads.sourceforge.net/giflib/%{name}-%{version}.tar.bz2
 Source1001: 	giflib.manifest
-BuildRequires:  pkgconfig(ice)
-BuildRequires:  pkgconfig(sm)
 %if %{with wayland}
 
 %else
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xv)
+BuildRequires:  pkgconfig(ice)
+BuildRequires:  pkgconfig(sm)
 %endif
 
 %description
