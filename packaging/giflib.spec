@@ -1,5 +1,5 @@
 %bcond_with wayland
-
+%bcond_with x
 Name:           giflib
 Version:        4.1.6
 Release:        9
@@ -9,9 +9,7 @@ Url:            http://sourceforge.net/projects/giflib/
 Group:          System/Libraries
 Source0:        http://downloads.sourceforge.net/giflib/%{name}-%{version}.tar.bz2
 Source1001: 	giflib.manifest
-%if %{with wayland}
-
-%else
+%if %{with x}
 BuildRequires:  pkgconfig(x11)
 BuildRequires:  pkgconfig(xv)
 BuildRequires:  pkgconfig(ice)
@@ -60,7 +58,7 @@ cp %{SOURCE1001} .
 
 %build
 %configure  \
-%if %{with wayland}
+%if %{with wayland} && !%{with x}
   --disable-x11
 %endif
 
