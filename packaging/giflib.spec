@@ -1,8 +1,8 @@
 %bcond_with wayland
 %bcond_with x
 Name:           giflib
-Version:        4.1.6
-Release:        9
+Version:        5.1.2
+Release:        10
 License:        MIT
 Summary:        Library for manipulating GIF format image files
 Url:            http://sourceforge.net/projects/giflib/
