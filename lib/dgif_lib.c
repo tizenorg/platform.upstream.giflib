@@ -179,6 +179,7 @@ DGifOpen(void *userData, InputFunc readFunc, int *Error)
         free((char *)GifFile);
         return NULL;
     }
+    /*@i1@*/memset(Private, '\0', sizeof(GifFilePrivateType));
 
     GifFile->Private = (void *)Private;
     Private->FileHandle = 0;
